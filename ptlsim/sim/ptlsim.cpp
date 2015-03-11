@@ -245,9 +245,9 @@ void ConfigurationParser<PTLsimConfig>::reset() {
   simpoint_chk_name = "simpoint";
 #ifdef DRAMSIM
   // DRAMSim2 options
-  dramsim_device_ini_file = "ini/DDR3_micron_8M_8B_x16_sg15.ini";
+  dramsim_device_ini_file = "ini/HMC_4GB.ini";
   dramsim_system_ini_file = "system.ini";
-  dramsim_pwd = "../DRAMSim2";
+  dramsim_pwd = "../ramsim";
   dramsim_results_dir_name = "MARSS";
 #endif
 
@@ -891,12 +891,12 @@ extern "C" void ptl_machine_configure(const char* config_str_) {
         config.printusage(cerr, config);
         config.help=0;
     }
-/*
+
     if(config.kill) {
         flush_stats();
         kill_simulation();
     }
-*/
+
     // reset machine's initalized variable only if it is the first run
 
 
