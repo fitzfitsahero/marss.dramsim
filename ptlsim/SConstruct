@@ -35,6 +35,10 @@ if os.path.isdir(dramsim_path):
 	env['CPPPATH'].append(dramsim_path);
 	env.Append(CCFLAGS = '-DDRAMSIM')
 
+#trace file
+trace = ARGUMENTS.get('trace', 0)
+if int(trace):
+  env.Append(CCFLAGS = '-DTRACE')
 
 optimization_defs = '-fno-trapping-math -fstack-protector -fno-exceptions '
 optimization_defs += '-fno-rtti -funroll-loops -fstrict-aliasing '

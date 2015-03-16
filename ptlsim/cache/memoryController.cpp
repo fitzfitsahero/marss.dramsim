@@ -80,6 +80,10 @@ MemoryController::MemoryController(W8 coreid, const char *name,
 	foreach(i, MEM_BANKS) {
 		banksUsed_[i] = 0;
 	}
+
+#ifdef TRACE
+  traceFile = fopen("trace.trc", "w");
+#endif
 }
 
 /*
@@ -217,6 +221,15 @@ bool MemoryController::handle_interconnect_cb(void *arg)
         ptl_logfile << "###### DRAMSIM REJECTING "<< *(queueEntry->request)<<endl; 
         assert(0);
     }
+#endif
+
+#ifdef TRACE
+  if(message->request->get_type() == MEMORY_OP_READ) {
+    fprintf(traceFile, "0x%llx %s %lld\n", message->request->get_physical_address(), "read", sim_cycle);
+  }
+  else if(message->request->get_type() == MEMORY_OP_UPDATE) {
+    fprintf(traceFile, "0x%llx %s %lld\n", message->request->get_physical_address(), "write", sim_cycle);
+  }
 #endif
 
 	return true;

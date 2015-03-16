@@ -88,6 +88,10 @@ class MemoryController : public Controller
 
         RAMStats new_stats;
 
+#ifdef TRACE
+    FILE *traceFile;
+#endif
+
 	public:
 		MemoryController(W8 coreid, const char *name,
 				 MemoryHierarchy *memoryHierarchy);
