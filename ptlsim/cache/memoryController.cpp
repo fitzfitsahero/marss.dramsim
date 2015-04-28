@@ -55,7 +55,8 @@ MemoryController::MemoryController(W8 coreid, const char *name,
 
     mem = DRAMSim::getMemorySystemInstance(config.dramsim_device_ini_file.buf,
             config.dramsim_system_ini_file.buf, config.dramsim_pwd.buf,
-            config.dramsim_results_dir_name.buf, qemu_ram_size>>20 ); 
+            //config.dramsim_results_dir_name.buf, qemu_ram_size>>20 ); 
+            config.dramsim_results_dir_name.buf, qemu_ram_size>>20, config.log_filename.buf ); 
 
     mem->setCPUClockSpeed(config.core_freq_hz); 
 
