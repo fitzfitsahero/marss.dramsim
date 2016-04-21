@@ -249,6 +249,7 @@ void ConfigurationParser<PTLsimConfig>::reset() {
   dramsim_system_ini_file = "system.ini";
   dramsim_pwd = "../ramsim";
   dramsim_results_dir_name = "MARSS";
+  dramsim_vis_name = "vis";
 #endif
 
 }
@@ -363,6 +364,7 @@ void ConfigurationParser<PTLsimConfig>::setup() {
   add(dramsim_pwd,              "dramsim-pwd",               "Working directory that DRAMSim2 should execute in");
   add(dramsim_system_ini_file,  "dramsim-system-ini-file",   "System ini file that DRAMSim2 should load"); 
   add(dramsim_results_dir_name, "dramsim-results-dir-name",  "Name of the results directory where the DRAMSim2 output should go"); 
+  add(dramsim_vis_name,         "dramsim-vim-name",          "Name of the vis file ending?");
 #endif
 };
 

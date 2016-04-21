@@ -296,6 +296,7 @@ struct PTLsimConfig {
   stringbuf dramsim_system_ini_file;
   stringbuf dramsim_pwd;
   stringbuf dramsim_results_dir_name;
+  stringbuf dramsim_vis_name;
 #endif
 
   void reset();
