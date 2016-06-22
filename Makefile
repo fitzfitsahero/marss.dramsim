@@ -4,6 +4,14 @@
 all: 
 	make -C /home/fitz/src/ramsim libdramsim.so
 # the c parameter is the number of cores to compile QEMU with 
+	scons debug=0 c=2 dramsim=/home/fitz/src/ramsim
+
+duo:
+	make -C /home/fitz/src/ramsim libdramsim.so
+	scons debug=0 c=2 dramsim=/home/fitz/src/ramsim
+
+uno:
+	make -C /home/fitz/src/ramsim libdramsim.so
 	scons debug=0 c=1 dramsim=/home/fitz/src/ramsim
 
 no:
